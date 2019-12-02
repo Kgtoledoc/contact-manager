@@ -1,20 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ContactListComponent } from './contact-list/contact-list.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { ContactListComponent } from "./contact-list/contact-list.component";
+import { HttpClientModule } from "@angular/common/http";
+import { ContactService } from "./contact.service";
+import {
+  MatTableModule,
+  MatButtonModule,
+  MatDialogModule
+} from "@angular/material";
+import { ContactViewDialogComponent } from "./contact-view-dialog/contact-view-dialog.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactViewDialogComponent
   ],
+  entryComponents: [ContactViewDialogComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatTableModule,
+    MatButtonModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
