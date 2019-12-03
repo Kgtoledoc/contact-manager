@@ -6,6 +6,7 @@ import { DataSource } from "@angular/cdk/collections";
 
 import { ContactService } from "../contact.service";
 import { ContactViewDialogComponent } from "../contact-view-dialog/contact-view-dialog.component";
+import { ContactAddComponent } from "../contact-add/contact-add.component";
 
 @Component({
   selector: "app-contact-list",
@@ -36,7 +37,25 @@ export class ContactListComponent implements OnInit {
         width: "450px",
         data: response
       });
+
+      dialogRef
+        .afterClosed()
+        .subscribe(
+          () => (this.dataSource = new ContactDataSource(this.contactService))
+        );
     });
+  }
+
+  openAddDialog() {
+    const dialogRef = this.dialog.open(ContactAddComponent, {
+      width: "450px"
+    });
+
+    dialogRef
+      .afterClosed()
+      .subscribe(
+        () => (this.dataSource = new ContactDataSource(this.contactService))
+      );
   }
 }
 

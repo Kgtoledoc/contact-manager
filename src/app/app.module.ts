@@ -10,17 +10,30 @@ import { ContactService } from "./contact.service";
 import {
   MatTableModule,
   MatButtonModule,
-  MatDialogModule
+  MatDialogModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule
 } from "@angular/material";
 import { ContactViewDialogComponent } from "./contact-view-dialog/contact-view-dialog.component";
+import { FormsModule } from "@angular/forms";
+import { ContactAddComponent } from "./contact-add/contact-add.component";
+import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
-    ContactViewDialogComponent
+    ContactViewDialogComponent,
+    ContactAddComponent,
+    ConfirmDialogComponent
   ],
-  entryComponents: [ContactViewDialogComponent],
+  entryComponents: [
+    ContactViewDialogComponent,
+    ContactAddComponent,
+    ConfirmDialogComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -28,7 +41,12 @@ import { ContactViewDialogComponent } from "./contact-view-dialog/contact-view-d
     HttpClientModule,
     MatTableModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]
